@@ -16,33 +16,61 @@ document.addEventListener("DOMContentLoaded", function(event) {
   
   // Do all of your work inside the document.addEventListener  
 
-  // Part 1
+  //part 1
+document.querySelector("#main-title").textContent = "Something shorter";
 
+//part 2
+document.querySelector("body").style.backgroundColor = "blue";
 
-  // Part 2
+//part 3
+const favoriteThings = document.querySelectorAll("#favorite-things > li")
 
+document
+.querySelector("#favorite-things")
+.removeChild(favoriteThings[favoriteThings.length - 1]);
 
-  // Part 3
+//part 4
+document.querySelectorAll(".special-title").forEach((item) => {
+ item.style.fontSize = "2rem";
+});
 
+//part 5
+document.querySelectorAll("#past-races > li").forEach((item) => {
+ if (item.textContent.trim() === "Chicago") {
+ document.querySelector("#past-races").removeChild(item);
+ }
+});
 
-  // Part 4
+//part 6
+const li = document.createElement("li");
+li.textContent = "cincinnati";
+document.querySelector("#past-races").appendChild(li);
 
+//part 7
+const blogPost = document.createElement("div");
+blogPost.classList.add("blog-post");
+blogPost.classList.add("purple");
+const heading = document.createElement("h1");
+heading.textContent = "Cincinnati";
+const pE1 = document.createElement("p");
+pE1.textContent = "My hometown of Cincinnati";
+document.querySelector(".main").appendChild(blogPost);
+blogPost.appendChild(heading);
+blogPost.appendChild(pE1);
 
-  // Part 5
+//part 8
+document.querySelector("#quote-title").addEventListener("click", () => {
+ randomQuote();
+ });
 
-
-  // Part 6
-
-
-  // Part 7
-
-
-  // Part 8
-
-
-  // Part 9
-
-
-
-
+//part 9
+document.querySelectorAll(".blog-post").forEach((item) => {
+ item.addEventListener("mouseout", (e) => {
+  e.currentTarget.classList.toggle("purple");
+  });
+ item.addEventListener("mouseenter", (e) => {
+ e.stopPropagation();
+ e.currentTarget.classList.toggle("red");
+  });
+ });
 });
